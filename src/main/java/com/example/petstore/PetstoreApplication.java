@@ -86,5 +86,23 @@ public class PetstoreApplication implements CommandLineRunner {
 		catRepository.save(cat2);
 		catRepository.save(cat3);
 
+		// Affichage des données en console ===
+		System.out.println("=== All Addresses ===");
+		addressRepository.findAll().forEach(System.out::println);
+
+		System.out.println("\n=== All PetStores ===");
+		petStoreRepository.findAll().forEach(System.out::println);
+
+		System.out.println("\n=== All Products ===");
+		productRepository.findAll().forEach(System.out::println);
+
+		System.out.println("\n=== All Animals (incluant Fish et Cat) ===");
+		animalRepository.findAll().forEach(System.out::println);
+
+		System.out.println("\n=== All Fish ===");
+		fishRepository.findAll().forEach(System.out::println);
+
+		System.out.println("\n=== All Cats ===");
+		catRepository.findAll().forEach(System.out::println);
 	}
 }
