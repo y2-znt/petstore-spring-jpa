@@ -54,5 +54,12 @@ public class PetstoreApplication implements CommandLineRunner {
 		petStoreRepository.save(petStore2);
 		petStoreRepository.save(petStore3);
 
+		// Création des produits (reliés a un PetStore)
+		Product product1 = new Product("Croquettes", "Croquettes label", ProdType.FOOD, 10.0, petStore1);
+		Product product2 = new Product("Litière", "Litière label", ProdType.ACCESSORY, 5.0, petStore1);
+		Product product3 = new Product("Poisson rouge", "Poisson rouge label", ProdType.CLEANING, 2.0, petStore2);
+		productRepository.save(product1);
+		productRepository.save(product2);
+		productRepository.save(product3);
 	}
 }
