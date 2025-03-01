@@ -28,17 +28,17 @@ public class Product implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "petstore_id")
-    private PetStore petstore;
+    private PetStore petStore;
 
     public Product() {
     }
 
-    public Product(String name, String label, ProdType type, Double price, PetStore petstore) {
+    public Product(String name, String label, ProdType type, Double price, PetStore petStore) {
         this.name = name;
         this.label = label;
         this.type = type;
         this.price = price;
-        this.petstore = petstore;
+        this.petStore = petStore;
     }
 
     public Long getId() {
@@ -82,11 +82,11 @@ public class Product implements Serializable {
     }
 
     public PetStore getPetstore() {
-        return petstore;
+        return petStore;
     }
 
-    public void setPetstore(PetStore petstore) {
-        this.petstore = petstore;
+    public void setPetstore(PetStore petStore) {
+        this.petStore = petStore;
     }
 
     @Override
@@ -97,7 +97,7 @@ public class Product implements Serializable {
                 ", label='" + label + '\'' +
                 ", type=" + type +
                 ", price=" + price +
-                ", petstore=" + petstore +
+                ", petStore=" + petStore +
                 '}';
     }
 }
