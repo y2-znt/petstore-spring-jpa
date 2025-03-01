@@ -8,16 +8,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Date;
+import java.util.List;
 
 @SpringBootApplication
 public class PetstoreApplication implements CommandLineRunner {
 
     private final AnimalRepository animalRepository;
 	private final AddressRepository addressRepository;
-	private CatRepository catRepository;
-	private FishRepository fishRepository;
-	private PetStoreRepository petStoreRepository;
-	private ProductRepository productRepository;
+	private final CatRepository catRepository;
+	private final FishRepository fishRepository;
+	private final PetStoreRepository petStoreRepository;
+	private final ProductRepository productRepository;
 
 	@Autowired
 	public PetstoreApplication(AddressRepository addressRepository, AnimalRepository animalRepository, CatRepository catRepository, FishRepository fishRepository, PetStoreRepository petStoreRepository, ProductRepository productRepository) {
@@ -86,6 +87,9 @@ public class PetstoreApplication implements CommandLineRunner {
 		catRepository.save(cat2);
 		catRepository.save(cat3);
 
+		// Récupération des animaux du PetStore 1
+		List<Animal> animauxPetStore1 = animalRepository.findByPetStoreId(petStore1.getId());
+
 		// Affichage des données en console ===
 		System.out.println("=== All Addresses ===");
 		addressRepository.findAll().forEach(System.out::println);
@@ -104,5 +108,9 @@ public class PetstoreApplication implements CommandLineRunner {
 
 		System.out.println("\n=== All Cats ===");
 		catRepository.findAll().forEach(System.out::println);
+
+		// Affichage des animaux du PetStore 1
+		System.out.println("\n=== All Animals from PetStore 1 ===");
+		animauxPetStore1.forEach(System.out::println);
 	}
 }
