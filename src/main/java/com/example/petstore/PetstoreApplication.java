@@ -77,5 +77,14 @@ public class PetstoreApplication implements CommandLineRunner {
 		fishRepository.save(fish1);
 		fishRepository.save(fish2);
 		fishRepository.save(fish3);
+
+		// Création des cat (héritant de Animal)
+		Cat cat1 = new Cat(new Date(), "Rouge", petStore1, "1");
+		Cat cat2 = new Cat(new Date(), "Bleu", petStore1, "2");
+		Cat cat3 = new Cat(new Date(), "Vert", petStore2, "3");
+		catRepository.save(cat1);
+		catRepository.save(cat2);
+		catRepository.save(cat3);
+
 	}
 }
