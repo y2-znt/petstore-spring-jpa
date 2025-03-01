@@ -45,5 +45,14 @@ public class PetstoreApplication implements CommandLineRunner {
 		addressRepository.save(address1);
 		addressRepository.save(address2);
 		addressRepository.save(address3);
+
+		// Création des PetStore (reliés a une adresse)
+		PetStore petStore1 = new PetStore("PetStore1", "John Doe", address1);
+		PetStore petStore2 = new PetStore("PetStore2", "Jane Doe", address2);
+		PetStore petStore3 = new PetStore("PetStore3", "Jack Doe", address3);
+		petStoreRepository.save(petStore1);
+		petStoreRepository.save(petStore2);
+		petStoreRepository.save(petStore3);
+
 	}
 }
