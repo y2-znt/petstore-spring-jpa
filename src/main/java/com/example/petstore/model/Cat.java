@@ -2,6 +2,8 @@ package com.example.petstore.model;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "Cat")
 public class Cat extends Animal {
@@ -10,9 +12,11 @@ public class Cat extends Animal {
     private String chipId;
 
     public Cat() {
+        super();
     }
 
-    public Cat(String chipId) {
+    public Cat(Date birth, String color, PetStore petStore, String chipId) {
+        super(birth, color, petStore);
         this.chipId = chipId;
     }
 
